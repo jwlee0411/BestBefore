@@ -8,7 +8,7 @@
     android:paddingRight="16dp"
     android:paddingTop="8dp"
     android:paddingBottom="8dp"
-
+    android:id="@+id/MainRecyclerItem"
     >
 
     <ImageView
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@id/textCategory" />
 
     <TextView
-        android:id="@+id/textDay"
+        android:id="@+id/textDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/nanum_bold"
