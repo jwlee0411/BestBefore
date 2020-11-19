@@ -1,22 +1,20 @@
 package app.sunrin.bestbefore;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemViewHolder> {
+import java.util.ArrayList;
+
+public class RecyclerMainAdapter extends RecyclerView.Adapter<RecyclerMainAdapter.ItemViewHolder> {
 
     private ArrayList<Data> listData = new ArrayList<>();
 
@@ -31,7 +29,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerAdapter.ItemViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerMainAdapter.ItemViewHolder holder, int position) {
         // Item을 하나, 하나 보여주는(bind 되는) 함수입니다.
         holder.onBind(listData.get(position));
     }
@@ -74,11 +72,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
             textCategory.setText(data.getProductCategory());
             textDate.setText(data.getProductDate());
 
-
-
-
-            constraintLayout.setOnClickListener(v ->
-                    System.out.println("Clicked"));
+            constraintLayout.setOnClickListener(v -> {
+                Intent intent = new Intent(v.getContext(), MainActivity.class);
+                v.getContext().startActivity(intent);
+                Toast.makeText(v.getContext(), "등록되었습니다.", Toast.LENGTH_LONG).show();
+            });
 
         }
     }
