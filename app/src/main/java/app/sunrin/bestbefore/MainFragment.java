@@ -29,6 +29,8 @@ public class MainFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
+        foods = new String[][]{};
+
 
         //recyclerView 관련 코드
         recyclerView = root.findViewById(R.id.recyclerView);
@@ -40,14 +42,14 @@ public class MainFragment extends Fragment {
 
         ConstraintLayout constraintLayout = root.findViewById(R.id.layout_main);
 
-        foods = new String[][]{};
+
         if(foods.length == 0)
         {
             constraintLayout.setBackground(ContextCompat.getDrawable(root.getContext(), R.drawable.ic_dashboard_black_24dp));
         }
         else
         {
-
+            adapter.notifyDataSetChanged();
         }
 
 
@@ -65,7 +67,7 @@ public class MainFragment extends Fragment {
             }
         }
 
-        adapter.notifyDataSetChanged();
+
 
 
         floatingActionButton = root.findViewById(R.id.floatingActionButton);

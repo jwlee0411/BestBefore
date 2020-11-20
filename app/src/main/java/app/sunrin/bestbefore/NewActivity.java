@@ -1,5 +1,6 @@
 package app.sunrin.bestbefore;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -161,21 +162,10 @@ public class NewActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         adapter = new RecyclerNewAdapter();
         recyclerView.setAdapter(adapter);
+        SharedPreferences sharedPreferences = getSharedPreferences("food", 0);
 
 
-        for(int i = 0; i<foods.length; i++)
-        {
-            for(int j = 0; j<foods[i].length; j++)
-            {
-                Data data = new Data();
-                data.setProductName(foods[i][j][0]);
-                data.setProductCategory("그럴듯한 카테고리");
-                data.setProductDate(foods[i][j][1]); // 추후 수정 필요
-                adapter.addItem(data);
-            }
-        }
-
-        adapter.notifyDataSetChanged();
+        search();
 
         editText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -186,6 +176,7 @@ public class NewActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 // 여기에 change되면 할 거 넣기
+                search();
             }
 
             @Override
@@ -194,12 +185,81 @@ public class NewActivity extends AppCompatActivity {
             }
         });
 
+    }
 
 
+    public void search()
+    {
+        adapter = new RecyclerNewAdapter();
+        recyclerView.setAdapter(adapter);
+        String searchFood = editText.getText().toString();
+
+        if(searchFood.equals(""))
+        {
+            for(int i = 0; i<foods.length; i++)
+            {
+                for(int j = 0; j<foods[i].length; j++)
+                {
+
+                        Data data = new Data();
+                        data.setProductName(foods[i][j][0]);
+
+                        switch (i)
+                        {
+                            case 0: data.setProductCategory("채소"); break;
+                            case 1: data.setProductCategory("과일"); break;
+                            case 2: data.setProductCategory("육류"); break;
+                            case 3: data.setProductCategory("해산물"); break;
+                            case 4: data.setProductCategory("장&기름&조미료"); break;
+                            case 5: data.setProductCategory("냉동식품"); break;
+                            case 6: data.setProductCategory("음료"); break;
+                            case 7: data.setProductCategory("기타"); break;
+                            case 8: data.setProductCategory("유제품"); break;
 
 
+                        }
+                        data.setProductDate(foods[i][j][1]);
+                        adapter.addItem(data);
 
+
+                }
+            }
+        }
+        else
+        {
+            for(int i = 0; i<foods.length; i++)
+            {
+                for(int j = 0; j<foods[i].length; j++)
+                {
+                    if(foods[i][j][0].contains(searchFood))
+                    {
+                        Data data = new Data();
+                        data.setProductName(foods[i][j][0]);
+                        switch (i)
+                        {
+                            case 0: data.setProductCategory("채소"); break;
+                            case 1: data.setProductCategory("과일"); break;
+                            case 2: data.setProductCategory("육류"); break;
+                            case 3: data.setProductCategory("해산물"); break;
+                            case 4: data.setProductCategory("장&기름&조미료"); break;
+                            case 5: data.setProductCategory("냉동식품"); break;
+                            case 6: data.setProductCategory("음료"); break;
+                            case 7: data.setProductCategory("기타"); break;
+                            case 8: data.setProductCategory("유제품"); break;
+
+                        }
+                        data.setProductDate(foods[i][j][1]);
+                        adapter.addItem(data);
+                    }
+
+                }
+            }
+        }
+        adapter.notifyDataSetChanged();
 
 
     }
+
 }
+
+

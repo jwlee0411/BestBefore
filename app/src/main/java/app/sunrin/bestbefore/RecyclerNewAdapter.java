@@ -73,6 +73,7 @@ public class RecyclerNewAdapter extends RecyclerView.Adapter<RecyclerNewAdapter.
             textDate.setText(data.getProductDate());
 
             constraintLayout.setOnClickListener(v -> {
+                //여기에 등록 관련 내용 추가하기
                 Intent intent = new Intent(v.getContext(), MainActivity.class);
                 v.getContext().startActivity(intent);
                 Toast.makeText(v.getContext(), "등록되었습니다.", Toast.LENGTH_LONG).show();
