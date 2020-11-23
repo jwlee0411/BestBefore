@@ -1,6 +1,8 @@
 package app.sunrin.bestbefore;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -30,6 +32,13 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
        // NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+
+        Intent intent = getIntent();
+        if(intent.getExtras() != null)
+        {
+            //Toast.makeText(this, intent.getExtras().getString("debug"), Toast.LENGTH_LONG).show();
+           // System.out.println(intent.getExtras().getString("debug"));
+        }
 
 
 

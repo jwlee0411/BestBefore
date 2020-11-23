@@ -6,14 +6,16 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:orientation="vertical"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/recyclerViewNew"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -25,8 +27,8 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:ems="10"
-            android:inputType="textPersonName"
             android:hint="상품명을 입력하세요."
+            android:inputType="textPersonName"
             tools:layout_editor_absoluteY="11dp" />
 
         <Button
@@ -34,12 +36,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="확인"
-            android:visibility="gone"
-         />
+            android:onClick="OnButtonActivated"
+            android:visibility="gone" />
 
 
     </LinearLayout>
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewNew"
@@ -48,7 +49,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" >
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 

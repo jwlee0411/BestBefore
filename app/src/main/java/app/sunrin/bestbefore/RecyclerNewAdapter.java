@@ -75,8 +75,16 @@ public class RecyclerNewAdapter extends RecyclerView.Adapter<RecyclerNewAdapter.
             constraintLayout.setOnClickListener(v -> {
                 //여기에 등록 관련 내용 추가하기
                 Intent intent = new Intent(v.getContext(), MainActivity.class);
+                ArrayList<String> arrayList = new ArrayList<String>();
+                arrayList.add(textName.getText().toString());
+                intent.putExtra("category", arrayList);
+                intent.putExtra("name", textName.getText().toString());
+                intent.putExtra("date", data.getProductDate());
+                intent.putExtra("debug", "debug string");
+
                 v.getContext().startActivity(intent);
-                Toast.makeText(v.getContext(), "등록되었습니다.", Toast.LENGTH_LONG).show();
+
+               //Toast.makeText(v.getContext(), "등록되었습니다.", Toast.LENGTH_LONG).show();
             });
 
         }
