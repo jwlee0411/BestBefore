@@ -12,6 +12,8 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceStare) {
         super.onCreate(savedInstanceStare);
         setContentView(R.layout.activity_splash);
+
+
         // 어플리케이션을 열면 처음에 실행됨.(SpalshActivity -> MainActivity로 실행되는 구조)
 
         Handler handler = new Handler(); // Handler 사용해 1초가 지나면 MainActivity 열기

@@ -85,12 +85,12 @@ public class RecyclerMainAdapter extends RecyclerView.Adapter<RecyclerMainAdapte
 
                 //걍 화면 없이 데이터를 바로 지우려면
                 //이 Toast를 띄워주는 걸로
-                Toast.makeText(v.getContext(), "삭제하려면 길게 눌러주세요.", Toast.LENGTH_LONG).show();
+              //  Toast.makeText(v.getContext(), "삭제하려면 길게 눌러주세요.", Toast.LENGTH_LONG).show();
             });
             constraintLayout.setOnLongClickListener(v -> {
                 //여기에 삭제 관련 내용 추가하기
-                Toast.makeText(v.getContext(), "삭제되었습니다.", Toast.LENGTH_LONG).show();
-                
+               // Toast.makeText(v.getContext(), "삭제되었습니다.", Toast.LENGTH_LONG).show();
+
                 return true;
             });
 

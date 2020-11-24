@@ -81,13 +81,6 @@ public class RecyclerNewAdapter extends RecyclerView.Adapter<RecyclerNewAdapter.
             textRegisterDate.setText(data.getProductRegisterDate());
 
             constraintLayout.setOnClickListener(v -> {
-                //여기에 등록 관련 내용 추가하기
-//
-//                FirebaseDatabase database = FirebaseDatabase.getInstance();
-//                DatabaseReference myRef = database.getReference(data.getProductName());
-//                myRef.setValue(System.currentTimeMillis()/1000);
-
-
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                  DatabaseReference myRef = database.getReference(String.valueOf(System.currentTimeMillis()));
                  myRef.setValue(data.getProductName() + "@" + data.getProductCategory() + "@" + (Integer.parseInt(String.valueOf(System.currentTimeMillis()/1000)) + Integer.parseInt(data.getProductDate())*60*60*24));

@@ -223,10 +223,8 @@ public class MainFragment extends Fragment {
                 Data data = new Data();
                 data.setProductName(value[0]);
                 data.setProductCategory(value[1]);
-
                 int dueDate = Integer.parseInt(value[2]);
                 int currentDate = Integer.parseInt(String.valueOf(System.currentTimeMillis()/1000));
-
                 data.setProductDate(Integer.toString((dueDate-currentDate)/60/60/24));
                 adapter.addItem(data);
                 adapter.notifyDataSetChanged();
