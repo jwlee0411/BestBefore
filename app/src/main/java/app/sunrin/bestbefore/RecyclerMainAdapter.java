@@ -74,13 +74,13 @@ public class RecyclerMainAdapter extends RecyclerView.Adapter<RecyclerMainAdapte
 
             constraintLayout.setOnClickListener(v -> {
                 //View를 클릭했을 때 관련된 화면이 나오게 하려면
-                Intent intent = new Intent(v.getContext(), FoodInformation.class);
+               // Intent intent = new Intent(v.getContext(), FoodInformation.class);
                 //name, category, date 정보를 보내주고
-                intent.putExtra("foodName", data.getProductName());
-                intent.putExtra("foodCategory", data.getProductCategory());
-                intent.putExtra("foodDate", data.getProductDate());
+             //   intent.putExtra("foodName", data.getProductName());
+            //    intent.putExtra("foodCategory", data.getProductCategory());
+            //    intent.putExtra("foodDate", data.getProductDate());
                 //activity를 시작함.
-                v.getContext().startActivity(intent);
+              //  v.getContext().startActivity(intent);
 
 
                 //걍 화면 없이 데이터를 바로 지우려면
@@ -90,6 +90,7 @@ public class RecyclerMainAdapter extends RecyclerView.Adapter<RecyclerMainAdapte
             constraintLayout.setOnLongClickListener(v -> {
                 //여기에 삭제 관련 내용 추가하기
                 Toast.makeText(v.getContext(), "삭제되었습니다.", Toast.LENGTH_LONG).show();
+                
                 return true;
             });
 

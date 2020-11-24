@@ -5,6 +5,7 @@ public class Data {
     private String productName;
     private String productCategory;
     private String productDate;
+    private String productRegisterDate;
 
     public String getProductName()
     {
@@ -20,6 +21,8 @@ public class Data {
         return productDate;
     }
 
+    public String getProductRegisterDate(){return productRegisterDate;}
+
     public void setProductName(String productName)
     {
         this.productName = productName;
@@ -34,6 +37,8 @@ public class Data {
     {
         this.productDate = productDate;
     }
+
+    public void setProductRegisterDate(String productRegisterDate){this.productRegisterDate = productRegisterDate;}
 
 
 

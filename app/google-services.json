@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "508664125166",
+    "firebase_url": "https://sunrin-bestbefore.firebaseio.com",
+    "project_id": "sunrin-bestbefore",
+    "storage_bucket": "sunrin-bestbefore.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:508664125166:android:b567440117d085b23a85ff",
+        "android_client_info": {
+          "package_name": "app.sunrin.bestbefore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "508664125166-qmemhuqm3avs317g8b465dc7vt6718b0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCizsHGviMdR30HjjwB_f_RRVaY_aFWMgE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "508664125166-qmemhuqm3avs317g8b465dc7vt6718b0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

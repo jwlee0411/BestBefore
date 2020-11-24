@@ -33,12 +33,12 @@ public class MainActivity extends AppCompatActivity {
        // NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-        Intent intent = getIntent();
-        if(intent.getExtras() != null)
-        {
-            //Toast.makeText(this, intent.getExtras().getString("debug"), Toast.LENGTH_LONG).show();
-           // System.out.println(intent.getExtras().getString("debug"));
-        }
+//        Intent intent = getIntent();
+//        if(intent.getExtras() != null)
+//        {
+//            //Toast.makeText(this, intent.getExtras().getString("debug"), Toast.LENGTH_LONG).show();
+//           // System.out.println(intent.getExtras().getString("debug"));
+//        }
 
 
 

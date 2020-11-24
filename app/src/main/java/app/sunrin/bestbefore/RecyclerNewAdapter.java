@@ -14,6 +14,11 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import org.w3c.dom.Text;
+
 public class RecyclerNewAdapter extends RecyclerView.Adapter<RecyclerNewAdapter.ItemViewHolder> {
 
     private ArrayList<Data> listData = new ArrayList<>();
@@ -52,6 +57,7 @@ public class RecyclerNewAdapter extends RecyclerView.Adapter<RecyclerNewAdapter.
         TextView textName;
         TextView textCategory;
         TextView textDate;
+        TextView textRegisterDate;
 
 
         ItemViewHolder(View itemView) {
@@ -61,6 +67,7 @@ public class RecyclerNewAdapter extends RecyclerView.Adapter<RecyclerNewAdapter.
                 textName = itemView.findViewById(R.id.textName);
                 textCategory = itemView.findViewById(R.id.textCategory);
                 textDate = itemView.findViewById(R.id.textDate);
+                textRegisterDate = itemView.findViewById(R.id.debug);
 
 
 
@@ -71,20 +78,35 @@ public class RecyclerNewAdapter extends RecyclerView.Adapter<RecyclerNewAdapter.
             textName.setText(data.getProductName());
             textCategory.setText(data.getProductCategory());
             textDate.setText(data.getProductDate());
+            textRegisterDate.setText(data.getProductRegisterDate());
 
             constraintLayout.setOnClickListener(v -> {
                 //여기에 등록 관련 내용 추가하기
+//
+//                FirebaseDatabase database = FirebaseDatabase.getInstance();
+//                DatabaseReference myRef = database.getReference(data.getProductName());
+//                myRef.setValue(System.currentTimeMillis()/1000);
+
+
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                 DatabaseReference myRef = database.getReference(String.valueOf(System.currentTimeMillis()));
+                 myRef.setValue(data.getProductName() + "@" + data.getProductCategory() + "@" + (Integer.parseInt(String.valueOf(System.currentTimeMillis()/1000)) + Integer.parseInt(data.getProductDate())*60*60*24));
+                data.setProductRegisterDate(String.valueOf(System.currentTimeMillis()));
+
                 Intent intent = new Intent(v.getContext(), MainActivity.class);
-                ArrayList<String> arrayList = new ArrayList<String>();
-                arrayList.add(textName.getText().toString());
-                intent.putExtra("category", arrayList);
-                intent.putExtra("name", textName.getText().toString());
+              //  ArrayList<String> arrayList = new ArrayList<String>();
+              //  arrayList.add(textName.getText().toString());
+               // intent.putExtra("category", arrayList);
+                intent.putExtra("category", data.getProductCategory());
+                intent.putExtra("name", data.getProductName());
                 intent.putExtra("date", data.getProductDate());
-                intent.putExtra("debug", "debug string");
+
+
+              //  intent.putExtra("debug", "debug string");
 
                 v.getContext().startActivity(intent);
 
-               //Toast.makeText(v.getContext(), "등록되었습니다.", Toast.LENGTH_LONG).show();
+               Toast.makeText(v.getContext(), "등록되었습니다.", Toast.LENGTH_LONG).show();
             });
 
         }
