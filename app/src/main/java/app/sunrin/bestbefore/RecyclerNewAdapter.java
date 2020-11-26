@@ -102,6 +102,10 @@ public class RecyclerNewAdapter extends RecyclerView.Adapter<RecyclerNewAdapter.
                Toast.makeText(v.getContext(), "등록되었습니다.", Toast.LENGTH_LONG).show();
             });
 
+
+
         }
+
+
     }
 }

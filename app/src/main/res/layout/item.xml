@@ -6,8 +6,8 @@
     android:layout_height="wrap_content"
     android:paddingLeft="24dp"
     android:paddingRight="24dp"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
     android:id="@+id/MainRecyclerItem"
     >
 
@@ -28,8 +28,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/nanum_bold"
         android:text="상품 카테고리"
-        android:textSize="24dp"
-        android:layout_marginStart="16dp"
+        android:textSize="18dp"
         app:layout_constraintLeft_toRightOf="@id/imageFood"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,7 +38,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/nanum_bold"
         android:text="상품명"
-        android:textSize="36dp"
+        android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textCategory"
         app:layout_constraintTop_toBottomOf="@id/textCategory" />
@@ -51,10 +50,24 @@
         android:fontFamily="@font/nanum_bold"
         android:text="D-n"
         android:textColor="@color/purple_500"
-        android:textSize="48dp"
 
+        android:textSize="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.511" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nanum_bold"
+        android:text="일"
+
+        android:textColor="@color/purple_500"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
